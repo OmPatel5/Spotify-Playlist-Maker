@@ -1,5 +1,5 @@
 const CLIENT_ID = 'b1d6bc59fb524faba158e317ce58ffff';
-const redirectURI = "https://serene-speculoos-6d5d3e.netlify.app";
+const redirectURI = "https://ompatel5.netlify.app";
 let userAccessToken = '';
 let Spotify = {
     getAccesssToken() {
