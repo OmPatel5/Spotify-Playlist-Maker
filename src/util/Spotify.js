@@ -39,8 +39,9 @@ let Spotify = {
         try {
             if (response.ok) {
                 let jsonResponse = await response.json();
-                jsonResponse = jsonResponse.tracks.items;
                 console.log(jsonResponse)
+
+                jsonResponse = jsonResponse.tracks.items;
                 let tracks = jsonResponse.map(track => track);
                 console.log(tracks)
                 return tracks;
