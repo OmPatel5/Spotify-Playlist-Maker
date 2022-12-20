@@ -22,7 +22,6 @@ export class Track extends React.Component {
   }
 
   addToPreview() {
-    console.log(this.props.track)
     this.props.onPreviewAdd(this.props.track)
   }
 

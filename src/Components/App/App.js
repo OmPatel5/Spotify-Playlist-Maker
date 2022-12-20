@@ -57,7 +57,6 @@ class App extends React.Component {
   }
 
   addToPreview(track) {
-      console.log(track)
       let previewTrack = {name: track.name, artists: track.artists[0].name, album: track.album.name, id: track.id, uri: track.uri, preview_url: track.preview_url, image: track.album.images[0].url}
       this.setState({previewTracks: previewTrack});
 

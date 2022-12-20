@@ -16,10 +16,10 @@ let Spotify = {
 
             if (access_token && expires_in) {
                 userAccessToken = access_token;
-                window.setTimeout(function () {
-                    userAccessToken = '';
-                }, expires_in[1]*1000)
-                window.history.pushState('Access Token', null, '/');
+                // window.setTimeout(function () {
+                //     userAccessToken = '';
+                // }, expires_in[1]*1000)
+                // window.history.pushState('Access Token', null, '/');
             }
 
             else if (userAccessToken === '') {
@@ -28,7 +28,6 @@ let Spotify = {
         }
     },
     async search(searchTerm) {
-        console.log(searchTerm)
         console.log('search() on Spotify Object is working')
         let baseURL =  'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
@@ -101,7 +100,6 @@ let Spotify = {
             })
             if (postMusic.ok) {
                 const jsonResponse = await postMusic.json();
-                console.log(jsonResponse)
             }
         }
         catch(error) {
