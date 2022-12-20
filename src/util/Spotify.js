@@ -54,7 +54,6 @@ let Spotify = {
         }
 
         let accessToken = userAccessToken[1];
-        let headers = {Authorization: `Bearer ${accessToken}`}
         let userID;
         let playlistID;
 
