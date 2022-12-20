@@ -29,7 +29,7 @@ h2 {
 .App {
   height: 100%;
   padding: 0 17% 10% 17%;
-  background-image: url('https://mobimg.b-cdn.net/v3/fetch/02/02e28dc65916dffd91d32b408f1d2f1d.jpeg');
+  background-image: url('./background.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
