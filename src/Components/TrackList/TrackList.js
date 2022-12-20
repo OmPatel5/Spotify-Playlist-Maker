@@ -3,6 +3,7 @@ import {Track} from '../Track/Track.js'
 import "./TrackList.css"
 export class TrackList extends React.Component {
     render() {
+        console.log(this.props.tracks)
         return (
             <div className="TrackList">
                 {this.props.tracks.map(track => <Track onRemove={this.props.onRemove} isRemoval={this.props.isRemoval} onPreviewAdd={this.props.onPreviewAdd} onAdd={this.props.onAdd} track={track} key={track.id} />)}
