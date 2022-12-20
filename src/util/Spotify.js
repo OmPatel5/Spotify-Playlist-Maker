@@ -32,6 +32,7 @@ let Spotify = {
         const response = await fetch(endpoint, {
             headers: {Authorization: `Bearer ${userAccessToken[1]}`}
           });
+        console.log(response)
         
         try {
             if (response.ok) {
