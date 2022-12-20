@@ -31,13 +31,14 @@ let Spotify = {
         console.log(userAccessToken[1])
         const response = await fetch(endpoint, {
             headers: {Authorization: `Bearer ${userAccessToken[1]}`}
-          });
+        });
         console.log(response)
         
         try {
             if (response.ok) {
                 let jsonResponse = await response.json();
                 jsonResponse = jsonResponse.tracks.items;
+                console.log(jsonResponse)
                 let tracks = jsonResponse.map(track => track);
                 console.log(tracks)
                 return tracks;
