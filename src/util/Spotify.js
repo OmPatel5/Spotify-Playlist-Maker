@@ -41,6 +41,7 @@ let Spotify = {
                 let jsonResponse = await response.json();
                 jsonResponse = jsonResponse.tracks.items;
                 let tracks = jsonResponse.map(track => track);
+                console.log(tracks)
                 return tracks;
             }
         }
