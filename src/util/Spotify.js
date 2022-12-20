@@ -26,7 +26,7 @@ let Spotify = {
     async search(searchTerm) {
         console.log('search() on Spotify Object is working')
         let baseURL =  'https://api.spotify.com';
-        let searchParam = `/v1/search?type=track&q=dra`;
+        let searchParam = `/v1/search?type=track&q=${searchTerm}`;
         let endpoint = baseURL + searchParam;
         console.log(userAccessToken[1])
         const response = await fetch(endpoint, {
