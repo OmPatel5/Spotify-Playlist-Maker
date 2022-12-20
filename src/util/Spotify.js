@@ -100,6 +100,7 @@ let Spotify = {
             })
             if (postMusic.ok) {
                 const jsonResponse = await postMusic.json();
+                console.log(jsonResponse)
             }
         }
         catch(error) {
