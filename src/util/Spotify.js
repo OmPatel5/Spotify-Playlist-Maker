@@ -12,6 +12,8 @@ let Spotify = {
             let access_token = url.match('access_token=([^&]*)')
             let expires_in = url.match('expires_in=([^&]*)')
 
+            console.log(access_token)
+
             if (access_token && expires_in) {
                 userAccessToken = access_token;
                 window.setTimeout(function () {
