@@ -29,11 +29,11 @@ class App extends React.Component {
     this.setState({playListTracks: []})
   }
 
-  search(searchTerm) {    
+  async search(searchTerm) {    
     if (searchTerm) {
       console.log(searchTerm)
       console.log('WORKING')
-      let tracks = Spotify.search(searchTerm);
+      let tracks = await Spotify.search(searchTerm);
       console.log(tracks)
       tracks.then((result)=>{
         this.setState({searchResults: result})
