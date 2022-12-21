@@ -18,8 +18,8 @@ let Spotify = {
 
                 window.setTimeout(function () {
                     userAccessToken = '';
+                    window.history.pushState('Access Token', null, '/');
                 }, expires_in[1]*1000)
-                window.history.pushState('Access Token', null, '/');
                 this.getAccesssToken();
             }
 
@@ -30,7 +30,7 @@ let Spotify = {
     },
     async search(searchTerm) {
         console.log('search() on Spotify Object is working')
-        let baseURL =  'https://api.spotify.com';
+        let baseURL = 'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
         let endpoint = baseURL + searchParam;
         let access_token = userAccessToken[1];
