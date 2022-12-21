@@ -40,7 +40,7 @@ let Spotify = {
                 "Content-Type": 'application/json'
             }
         });
-        console.log(response)
+        console.log(response);
         
         try {
             if (response.ok) {
