@@ -34,6 +34,7 @@ let Spotify = {
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
         let endpoint = baseURL + searchParam;
         let access_token = userAccessToken[1];
+        console.log(access_token);
         const response = await fetch(endpoint, {
             headers: {
                 Authorization: `Bearer BQBQc4qGh5xDeBdc_6r41vA4vM0SQ0EpqHNhg0KI6wcXQzo8ypjhXgbx37MHTNnK8ZhRkzcP-olAl7pGltBGH-X5SP2YcneZdfkmY95bfME1_R6S5kxAHgJRop6KFoyO2V60ZY1XQQNMITXFDbYaLIWuLD91zXpsnaB8LaujJSq1Uv-MKBdsWrsIlH1FyC66onAHM9tCUA`,
