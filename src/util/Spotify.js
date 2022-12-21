@@ -18,7 +18,7 @@ let Spotify = {
 
                 window.setTimeout(function () {
                     userAccessToken = '';
-                }, expires_in[1])
+                }, expires_in[1]*1000)
                 window.history.pushState('Access Token', null, '/');
                 this.getAccesssToken();
             }
