@@ -25,7 +25,7 @@ let Spotify = {
             }
 
             else if (userAccessToken === '') {
-                window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}&scope=user-read-private user-read-email`
+                window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`
             }
         }
     },
@@ -34,7 +34,7 @@ let Spotify = {
         let baseURL =  'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
         let endpoint = baseURL + searchParam;
-        console.log(userAccessToken[1])
+        console.log(endpoint)
         const response = await fetch(endpoint, {
             headers: {Authorization: `Bearer ${userAccessToken[1]}`}
         });
