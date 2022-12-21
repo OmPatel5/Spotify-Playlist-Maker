@@ -33,7 +33,6 @@ class App extends React.Component {
     if (searchTerm) {
       let tracks = Spotify.search(searchTerm);
       tracks.then((result)=>{
-        console.log(result);
         this.setState({searchResults: result})
       });
     }
