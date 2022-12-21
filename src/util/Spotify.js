@@ -34,7 +34,7 @@ let Spotify = {
         let baseURL = 'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
         let endpoint = baseURL + searchParam;
-        console.log(access_token);
+        console.log(access_token[1]);
         const response = await fetch(endpoint, {
             headers: {
                 Authorization: `Bearer ${access_token[1]}`,
