@@ -35,7 +35,7 @@ class App extends React.Component {
       console.log('WORKING')
       let tracks = await Spotify.search(searchTerm);
       console.log(tracks)
-      tracks.then((result)=>{
+      await tracks.then((result)=>{
         this.setState({searchResults: result})
       });
     }
