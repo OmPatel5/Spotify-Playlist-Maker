@@ -25,7 +25,7 @@ let Spotify = {
             }
 
             else if (userAccessToken === '') {
-                window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`
+                window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}&scope=user-read-private user-read-email`
             }
         }
     },
