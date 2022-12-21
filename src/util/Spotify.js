@@ -37,7 +37,7 @@ let Spotify = {
         console.log(access_token);
         const response = await fetch(endpoint, {
             headers: {
-                Authorization: `Bearer ${access_token}`,
+                Authorization: `Bearer ${access_token[1]}`,
                 "Content-Type": 'application/json'
             }
         });
