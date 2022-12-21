@@ -4,37 +4,40 @@ let userAccessToken = '';
 let Spotify = {
     getAccesssToken() {
         console.log('getAccessToken() is working')
-        let url = window.location.href;
-        let access_token = url.match('access_token=([^&]*)')
-        let expires_in = url.match('expires_in=([^&]*)')
-        console.log(expires_in[1])
-        console.log(typeof parseInt(expires_in[1]))
-
-        if (access_token && expires_in) {
-            userAccessToken = access_token;
-
-            setTimeout(function () {
-                userAccessToken = '';
-                window.history.pushState('Access Token', null, '/');
-            }, parseInt(expires_in[1])*1000)
+        if (userAccessToken) {
+            return userAccessToken;
         }
+        else {
+            let url = window.location.href;
+            let access_token = url.match('access_token=([^&]*)')
+            let expires_in = url.match('expires_in=([^&]*)')
+            console.log(expires_in[1])
+            console.log(typeof parseInt(expires_in[1]))
 
-        else if (userAccessToken === '') {
-            window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`
+            if (access_token && expires_in) {
+                userAccessToken = access_token;
+
+                setTimeout(function () {
+                    userAccessToken = '';
+                    window.history.pushState('Access Token', null, '/');
+                }, parseInt(expires_in[1])*1000)
+            }
+
+            else if (userAccessToken === '') {
+                window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`
+            }
         }
-        
     },
     async search(searchTerm) {
-        this.getAccesssToken()
+        let access_token = this.getAccesssToken()[1];
         console.log('search() on Spotify Object is working')
         let baseURL = 'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
         let endpoint = baseURL + searchParam;
-        let access_token = userAccessToken[1];
         console.log(access_token);
         const response = await fetch(endpoint, {
             headers: {
-                Authorization: `Bearer BQBQc4qGh5xDeBdc_6r41vA4vM0SQ0EpqHNhg0KI6wcXQzo8ypjhXgbx37MHTNnK8ZhRkzcP-olAl7pGltBGH-X5SP2YcneZdfkmY95bfME1_R6S5kxAHgJRop6KFoyO2V60ZY1XQQNMITXFDbYaLIWuLD91zXpsnaB8LaujJSq1Uv-MKBdsWrsIlH1FyC66onAHM9tCUA`,
+                Authorization: `Bearer ${access_token}`,
                 "Content-Type": 'application/json'
             }
         });
