@@ -13,7 +13,7 @@ let Spotify = {
             let expires_in = url.match('expires_in=([^&]*)')
             console.log(expires_in)
 
-            console.log(access_token)
+            console.log(access_token[1])
 
             if (access_token && expires_in) {
                 userAccessToken = access_token;
@@ -36,7 +36,7 @@ let Spotify = {
         let endpoint = baseURL + searchParam;
         console.log(endpoint)
         const response = await fetch(endpoint, {
-            headers: {Authorization: `Bearer ${userAccessToken[1]}`}
+            headers: {Authorization: `Bearer ${userAccessToken}`}
         });
         console.log(response)
         
