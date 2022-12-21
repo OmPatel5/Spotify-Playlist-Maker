@@ -16,7 +16,7 @@ let Spotify = {
 
             if (access_token && expires_in) {
                 userAccessToken = access_token;
-                
+
                 setTimeout(function () {
                     userAccessToken = '';
                     window.history.pushState('Access Token', null, '/');
@@ -40,7 +40,7 @@ let Spotify = {
                 "Content-Type": 'application/json'
             }
         });
-        console.log(response);
+        console.log(access_token);
         
         try {
             if (response.ok) {
