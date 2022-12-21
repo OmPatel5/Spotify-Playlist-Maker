@@ -15,7 +15,6 @@ let Spotify = {
 
             if (access_token && expires_in) {
                 userAccessToken = access_token;
-                console.log(userAccessToken)
 
                 window.setTimeout(function () {
                     userAccessToken = '';
@@ -33,9 +32,9 @@ let Spotify = {
         let baseURL =  'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
         let endpoint = baseURL + searchParam;
-        console.log(endpoint)
+        console.log(userAccessToken)
         const response = await fetch(endpoint, {
-            headers: {Authorization: `Bearer ${userAccessToken}`}
+            headers: {Authorization: `Bearer ${userAccessToken[1]}`}
         });
         console.log(response)
         
