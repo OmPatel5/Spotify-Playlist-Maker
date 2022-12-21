@@ -4,31 +4,28 @@ let userAccessToken = '';
 let Spotify = {
     getAccesssToken() {
         console.log('getAccessToken() is working')
-        if (userAccessToken) {
-            return userAccessToken;
+        let url = window.location.href;
+        let access_token = url.match('access_token=([^&]*)')
+        let expires_in = url.match('expires_in=([^&]*)')
+        console.log(expires_in[1])
+        console.log(typeof parseInt(expires_in[1]))
+
+        if (access_token && expires_in) {
+            userAccessToken = access_token;
+
+            setTimeout(function () {
+                userAccessToken = '';
+                window.history.pushState('Access Token', null, '/');
+            }, parseInt(expires_in[1])*1000)
         }
-        else {
-            let url = window.location.href;
-            let access_token = url.match('access_token=([^&]*)')
-            let expires_in = url.match('expires_in=([^&]*)')
-            console.log(expires_in[1])
-            console.log(typeof parseInt(expires_in[1]))
 
-            if (access_token && expires_in) {
-                userAccessToken = access_token;
-
-                setTimeout(function () {
-                    userAccessToken = '';
-                    window.history.pushState('Access Token', null, '/');
-                }, parseInt(expires_in[1])*1000)
-            }
-
-            else if (userAccessToken === '') {
-                window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`
-            }
+        else if (userAccessToken === '') {
+            window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`
         }
+        
     },
     async search(searchTerm) {
+        this.getAccesssToken()
         console.log('search() on Spotify Object is working')
         let baseURL = 'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
