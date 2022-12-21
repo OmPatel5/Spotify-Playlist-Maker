@@ -32,7 +32,7 @@ let Spotify = {
         let baseURL =  'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
         let endpoint = baseURL + searchParam;
-        console.log(userAccessToken)
+        console.log(userAccessToken[1])
         const response = await fetch(endpoint, {
             headers: {Authorization: `Bearer ${userAccessToken[1]}`}
         });
