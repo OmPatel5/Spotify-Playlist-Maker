@@ -13,15 +13,15 @@ let Spotify = {
             let expires_in = url.match('expires_in=([^&]*)')
             console.log(expires_in)
 
-            window.setTimeout(function () {
-                userAccessToken = '';
-            }, expires_in[1]*1000)
-            window.history.pushState('Access Token', null, '/');
-
             console.log(access_token)
 
             if (access_token && expires_in) {
                 userAccessToken = access_token;
+
+                window.setTimeout(function () {
+                    userAccessToken = '';
+                }, expires_in[1]*1000)
+                window.history.pushState('Access Token', null, '/');
             }
 
             else if (userAccessToken === '') {
