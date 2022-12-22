@@ -28,6 +28,10 @@ let Spotify = {
         //         window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
         //     }
         // }
+        if (access_token) {
+            return access_token;
+        }
+        
         if (!access_token) {
             window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
         }     
