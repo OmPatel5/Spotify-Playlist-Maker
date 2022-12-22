@@ -81,6 +81,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <button onClick={Spotify.getAccesssToken()}>click me</button>
         <h1>Spotify <span className="highlight">Playlist</span> Maker</h1>
         <div className="App">
           <SearchBar onSearch={this.search}/>

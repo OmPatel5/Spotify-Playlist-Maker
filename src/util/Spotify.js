@@ -133,5 +133,4 @@ let Spotify = {
     }
 }; 
 
-Spotify.getAccesssToken()
 export {Spotify};
