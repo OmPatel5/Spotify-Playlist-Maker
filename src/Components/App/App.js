@@ -6,7 +6,7 @@ import './App.css';
 import { Spotify } from '../../util/Spotify.js';
 import { Preview } from '../Preview/Preview.js';
 
-
+Spotify.getAccesssToken(); 
 class App extends React.Component {
   constructor(props) {
     super(props);
