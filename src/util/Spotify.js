@@ -33,7 +33,7 @@ let Spotify = {
         let url = window.location.href;
         access_token = url.match('access_token=([^&]*)')[1];
         let baseURL = 'https://api.spotify.com';
-        let searchParam = `/v1/search?type=track&q=drake`;
+        let searchParam = `/v1/search?type=track&q=d`;
         let endpoint = baseURL + searchParam;
         console.log(access_token)
 
