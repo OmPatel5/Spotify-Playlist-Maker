@@ -5,47 +5,31 @@ let access_token;
 let Spotify = {
     async getAccesssToken() {
         console.log('getAccessToken() is working')
-        // if (userAccessToken) {
-        //     return userAccessToken;
-        // }
-        // else {
-        //     let url = window.location.href;
-        //     let access_token = url.match('access_token=([^&]*)')
-        //     let expires_in = url.match('expires_in=([^&]*)')
-        //     console.log(expires_in[1])
-        //     console.log(typeof parseInt(expires_in[1]))
+        if (userAccessToken) {
+            return userAccessToken;
+        }
+        else {
+            let url = window.location.href;
+            let access_token = url.match('access_token=([^&]*)')
+            let expires_in = url.match('expires_in=([^&]*)')
+            console.log(expires_in[1])
+            console.log(typeof parseInt(expires_in[1]))
 
-        //     if (access_token && expires_in) {
-        //         userAccessToken = access_token;
+            if (access_token && expires_in) {
+                userAccessToken = access_token[1];
 
-        //         window.setTimeout(function () {
-        //             userAccessToken = '';
-        //             window.history.pushState('Access Token', null, '/');
-        //         }, parseInt(expires_in[1])*1000)
-        //     }
-
-        //     else if (userAccessToken === '') {
-        //         window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
-        //     }
-        // }
-        window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
-
-        window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
-        let url = window.location.href;
-        access_token = url.match('access_token=([^&]*)')[1];
-        let baseURL = 'https://api.spotify.com';
-        let searchParam = `/v1/search?type=track&q=d`;
-        let endpoint = baseURL + searchParam;
-        console.log(access_token)
-
-        const response = await fetch(endpoint, {
-            headers: {
-                Authorization: `Bearer ${access_token}`,
-                "Content-Type": 'application/json'
+                window.setTimeout(function () {
+                    userAccessToken = '';
+                }, parseInt(expires_in[1])*1000)
+                window.history.pushState('Access Token', null, '/');
+                return userAccessToken;
             }
-        });
-        
-        console.log(response.json())
+
+            else {
+                window.location = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
+            }
+        } 
+       
         
         
     },
