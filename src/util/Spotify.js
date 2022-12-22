@@ -35,6 +35,7 @@ let Spotify = {
         let baseURL = 'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=drake`;
         let endpoint = baseURL + searchParam;
+        console.log(access_token)
 
         const response = fetch(endpoint, {
             headers: {
