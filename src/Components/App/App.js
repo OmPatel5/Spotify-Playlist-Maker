@@ -6,6 +6,8 @@ import './App.css';
 import { Spotify } from '../../util/Spotify.js';
 import { Preview } from '../Preview/Preview.js';
 
+Spotify.getAccesssToken()
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -81,7 +83,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={Spotify.getAccesssToken()}>click me</button>
         <h1>Spotify <span className="highlight">Playlist</span> Maker</h1>
         <div className="App">
           <SearchBar onSearch={this.search}/>

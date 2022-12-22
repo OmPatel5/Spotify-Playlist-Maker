@@ -27,7 +27,9 @@ let Spotify = {
         //         window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
         //     }
         // }
-        window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
+        if (!userAccessToken) {
+            window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
+        }
         let url = window.location.href;
         let access_token = url.match('access_token=([^&]*)')[1];
         let baseURL = 'https://api.spotify.com';
