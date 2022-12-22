@@ -1,6 +1,7 @@
 const CLIENT_ID = 'b1d6bc59fb524faba158e317ce58ffff';
 const redirectURI = "https://ompatel5.netlify.app";
 let userAccessToken = '';
+let access_token;
 let Spotify = {
     getAccesssToken() {
         console.log('getAccessToken() is working')
@@ -27,11 +28,11 @@ let Spotify = {
         //         window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
         //     }
         // }
-        if (!userAccessToken) {
+        if (!access_token) {
             window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
         }
         let url = window.location.href;
-        let access_token = url.match('access_token=([^&]*)')[1];
+        access_token = url.match('access_token=([^&]*)')[1];
         let baseURL = 'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=drake`;
         let endpoint = baseURL + searchParam;
