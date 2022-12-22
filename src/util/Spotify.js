@@ -17,15 +17,14 @@ let Spotify = {
             if (access_token && expires_in) {
                 userAccessToken = access_token;
 
-                setTimeout(function () {
+                window.setTimeout(function () {
                     userAccessToken = '';
                     window.history.pushState('Access Token', null, '/');
                 }, parseInt(expires_in[1])*1000)
             }
 
             else if (userAccessToken === '') {
-                let state = Math.floor(Math.random() * 17);
-                window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}&state=${state}`
+                window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
             }
         }
     },
