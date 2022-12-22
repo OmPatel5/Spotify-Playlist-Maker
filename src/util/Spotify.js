@@ -1,5 +1,5 @@
-// const CLIENT_ID = 'b1d6bc59fb524faba158e317ce58ffff';
-// const redirectURI = "https://ompatel5.netlify.app";
+const CLIENT_ID = 'b1d6bc59fb524faba158e317ce58ffff';
+const redirectURI = "https://ompatel5.netlify.app";
 let userAccessToken = '';
 let access_token;
 let Spotify = {
