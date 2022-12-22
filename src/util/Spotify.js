@@ -31,25 +31,27 @@ let Spotify = {
         if (access_token) {
             return access_token;
         }
-        
-        if (!access_token) {
-            window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
-        }     
-        let url = window.location.href;
-        access_token = url.match('access_token=([^&]*)')[1];
-        let baseURL = 'https://api.spotify.com';
-        let searchParam = `/v1/search?type=track&q=d`;
-        let endpoint = baseURL + searchParam;
-        console.log(access_token)
 
-        const response = await fetch(endpoint, {
-            headers: {
-                Authorization: `Bearer ${access_token}`,
-                "Content-Type": 'application/json'
-            }
-        });
+
+        else {
+            window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
+            let url = window.location.href;
+            access_token = url.match('access_token=([^&]*)')[1];
+            let baseURL = 'https://api.spotify.com';
+            let searchParam = `/v1/search?type=track&q=d`;
+            let endpoint = baseURL + searchParam;
+            console.log(access_token)
+
+            const response = await fetch(endpoint, {
+                headers: {
+                    Authorization: `Bearer ${access_token}`,
+                    "Content-Type": 'application/json'
+                }
+            });
+            
+            console.log(response.json())
+        }
         
-        console.log(response.json())
     },
     async search(searchTerm) {
         // let access_token = this.getAccesssToken();
