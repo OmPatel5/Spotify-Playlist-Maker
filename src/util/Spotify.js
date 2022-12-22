@@ -30,7 +30,18 @@ let Spotify = {
         window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
         let url = window.location.href;
         let access_token = url.match('access_token=([^&]*)')[1];
-        console.log(access_token)
+        let baseURL = 'https://api.spotify.com';
+        let searchParam = `/v1/search?type=track&q=drake`;
+        let endpoint = baseURL + searchParam;
+
+        const response = fetch(endpoint, {
+            headers: {
+                Authorization: `Bearer ${access_token}`,
+                "Content-Type": 'application/json'
+            }
+        });
+        let jsonResponse = response.json();
+        console.log(jsonResponse)
     },
     async search(searchTerm) {
         // let access_token = this.getAccesssToken();
