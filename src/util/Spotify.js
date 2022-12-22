@@ -43,8 +43,8 @@ let Spotify = {
                 "Content-Type": 'application/json'
             }
         });
-        let jsonResponse = response.json();
-        console.log(jsonResponse)
+        
+        console.log(response)
     },
     async search(searchTerm) {
         // let access_token = this.getAccesssToken();
