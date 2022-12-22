@@ -29,6 +29,7 @@ class App extends React.Component {
   }
 
   search(searchTerm) {    
+    Spotify.getAccesssToken()
     if (searchTerm) {
       console.log(searchTerm)
       console.log('WORKING')
