@@ -28,7 +28,7 @@ let Spotify = {
         //         window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
         //     }
         // }
-            // window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
+        window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
         
         let url = window.location.href;
         access_token = url.match('access_token=([^&]*)')[1];
