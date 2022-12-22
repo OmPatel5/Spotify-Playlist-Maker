@@ -54,7 +54,7 @@ let Spotify = {
         let endpoint = baseURL + searchParam;
         const response = await fetch(endpoint, {
             headers: {
-                Authorization: `Bearer BQBQc4qGh5xDeBdc_6r41vA4vM0SQ0EpqHNhg0KI6wcXQzo8ypjhXgbx37MHTNnK8ZhRkzcP-olAl7pGltBGH-X5SP2YcneZdfkmY95bfME1_R6S5kxAHgJRop6KFoyO2V60ZY1XQQNMITXFDbYaLIWuLD91zXpsnaB8LaujJSq1Uv-MKBdsWrsIlH1FyC66onAHM9tCUA`,
+                Authorization: `Bearer ${access_token}`,
                 "Content-Type": 'application/json'
             }
         });
