@@ -5,6 +5,7 @@ let Spotify = {
     async getAccesssToken() {
         console.log('getAccessToken() is working')
         if (userAccessToken) {
+            console.log(userAccessToken)
             return userAccessToken;
         }
         else {
