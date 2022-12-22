@@ -3,7 +3,7 @@
 let userAccessToken = '';
 let access_token;
 let Spotify = {
-    getAccesssToken() {
+    async getAccesssToken() {
         console.log('getAccessToken() is working')
         // if (userAccessToken) {
         //     return userAccessToken;
@@ -37,14 +37,14 @@ let Spotify = {
         let endpoint = baseURL + searchParam;
         console.log(access_token)
 
-        const response = fetch(endpoint, {
+        const response = await fetch(endpoint, {
             headers: {
                 Authorization: `Bearer ${access_token}`,
                 "Content-Type": 'application/json'
             }
         });
         
-        console.log(response)
+        console.log(response.json())
     },
     async search(searchTerm) {
         // let access_token = this.getAccesssToken();
