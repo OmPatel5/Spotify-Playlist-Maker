@@ -93,7 +93,6 @@ let Spotify = {
             console.log(error)
         }
 
-        userAccessToken = '';
         accessToken = Spotify.getAccesssToken();
         console.log(userID)
         console.log(playlistName)
