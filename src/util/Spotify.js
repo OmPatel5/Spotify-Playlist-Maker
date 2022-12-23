@@ -20,8 +20,8 @@ let Spotify = {
         }
 
         else {
-            let scopes = 'user-top-read '
-            window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}&scope=${scopes}`
+            let scopes = 'user-top-read%20user-library-modify'
+            window.location = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}&scope=${scopes}`
         }    
     },
     
