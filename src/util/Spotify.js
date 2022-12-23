@@ -14,7 +14,7 @@ let Spotify = {
         if (access_token && expires_in) {
             userAccessToken = access_token[1];
             const expiresIn = Number(expires_in[1]);
-            window.setTimeout(() => userAccessToken = '', Number(expiresIn)*1000);
+            window.setTimeout(() => userAccessToken = '', expiresIn*1000);
             window.history.pushState('Access Token', null, '/');
             return userAccessToken;
         }
@@ -26,6 +26,7 @@ let Spotify = {
     
     async search(searchTerm) {
         let access_token = Spotify.getAccesssToken();
+        console.log(access_token)
         console.log('search() on Spotify Object is working')
         let baseURL = 'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
