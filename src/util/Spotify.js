@@ -93,16 +93,24 @@ let Spotify = {
             console.log(error)
         }
         console.log(userID)
-        accessToken = Spotify.getAccesssToken();
+
         try {
-            const response = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
+            accessToken = Spotify.getAccesssToken();
+        }
+        catch {
+            userAccessToken='';
+            accessToken = Spotify.getAccesssToken();
+        }
+        
+        const response = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
                 method: 'POST',
                 body: JSON.stringify({name: playlistName}),
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                     "Content-Type": 'application/json'
                 }
-            })
+        })
+        try {
             if (response.ok) {
                 const jsonResponse = await response.json();
                 playlistID = jsonResponse.id;
