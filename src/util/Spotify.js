@@ -76,7 +76,7 @@ let Spotify = {
             userAccessToken='';
             accessToken = Spotify.getAccesssToken();
         }
-        
+
         let userID;
         let playlistID;
 
@@ -92,6 +92,7 @@ let Spotify = {
         catch(error) {
             console.log(error)
         }
+        accessToken = Spotify.getAccesssToken();
         try {
             const response = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
                 method: 'POST',
