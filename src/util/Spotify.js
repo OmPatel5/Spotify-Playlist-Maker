@@ -8,27 +8,22 @@ let Spotify = {
             console.log(userAccessToken)
             return userAccessToken;
         }
+        let access_token = window.location.href.match(/access_token=([^&]*)/)
+        let expires_in = window.location.href.match(/expires_in=([^&]*)/)
+
+        if (access_token && expires_in) {
+            userAccessToken = access_token[1];
+            const expiresIn = Number(expires_in[1]);
+            window.setTimeout(() => userAccessToken = '', Number(expiresIn)*1000);
+            window.history.pushState('Access Token', null, '/');
+            return userAccessToken;
+        }
+
         else {
-            let url = window.location.href;
-            let access_token = url.match(/access_token=([^&]*)/)
-            let expires_in = url.match(/expires_in=([^&]*)/)
-            console.log(expires_in)
-            if (access_token && expires_in) {
-                userAccessToken = access_token;
-
-                window.setTimeout(() =>userAccessToken = '', Number(expires_in)*1000)
-                window.history.pushState('Access Token', null, '/');
-                return userAccessToken;
-            }
-
-            else {
-                window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
-            }
-        } 
-       
-        
-        
+            window.location.href = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}`
+        }    
     },
+    
     async search(searchTerm) {
         let access_token = Spotify.getAccesssToken();
         console.log('search() on Spotify Object is working')
