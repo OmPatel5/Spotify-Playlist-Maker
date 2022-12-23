@@ -20,7 +20,7 @@ let Spotify = {
         }
 
         else {
-            let scopes = 'user-top-read%20user-library-modify'
+            let scopes = 'user-top-read user-library-modify playlist-modify-public'
             window.location = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${redirectURI}&scope=${scopes}`
         }    
     },
