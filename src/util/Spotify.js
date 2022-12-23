@@ -68,7 +68,15 @@ let Spotify = {
             return;
         }
 
-        let accessToken = Spotify.getAccesssToken();
+        let accessToken;
+        try {
+            accessToken = Spotify.getAccesssToken();
+        }
+        catch {
+            userAccessToken='';
+            accessToken = Spotify.getAccesssToken();
+        }
+        
         let userID;
         let playlistID;
 
