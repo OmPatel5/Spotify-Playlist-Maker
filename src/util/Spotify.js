@@ -68,7 +68,7 @@ let Spotify = {
             return;
         }
 
-        let accessToken = userAccessToken[1];
+        let accessToken = Spotify.getAccesssToken();
         let userID;
         let playlistID;
 
