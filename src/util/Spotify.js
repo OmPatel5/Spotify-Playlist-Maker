@@ -26,7 +26,14 @@ let Spotify = {
     },
     
     async search(searchTerm) {
-        let access_token = Spotify.getAccesssToken();
+        let access_token;
+        try {
+            access_token = Spotify.getAccesssToken();
+        }
+        catch {
+            userAccessToken='';
+            access_token = Spotify.getAccesssToken();
+        }
         console.log(access_token)
         console.log('search() on Spotify Object is working')
         let baseURL = 'https://api.spotify.com';
