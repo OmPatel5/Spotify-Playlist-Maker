@@ -1,5 +1,12 @@
 # Spotify Playlist Maker
 
+## Searching Up songs and looking at 30 second previews 
+https://user-images.githubusercontent.com/104532194/209446200-3b9db88c-8d24-48a8-b608-514ead2f9819.mp4
+
+
+## Adding songs to playlist 
+https://user-images.githubusercontent.com/104532194/209446205-abefccde-7f19-4bb7-ab3a-00bca6a7912b.mp4
+
 
 
 # Getting Started with Create React App
