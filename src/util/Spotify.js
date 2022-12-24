@@ -5,7 +5,6 @@ let Spotify = {
     getAccesssToken() {
         console.log('getAccessToken() is working')
         if (userAccessToken) {
-            console.log(userAccessToken)
             return userAccessToken;
         }
         let access_token = window.location.href.match(/access_token=([^&]*)/)
@@ -34,8 +33,8 @@ let Spotify = {
             userAccessToken='';
             access_token = Spotify.getAccesssToken();
         }
-        console.log(access_token)
-        console.log('search() on Spotify Object is working')
+        // console.log(access_token)
+        // console.log('search() on Spotify Object is working')
         let baseURL = 'https://api.spotify.com';
         let searchParam = `/v1/search?type=track&q=${searchTerm}`;
         let endpoint = baseURL + searchParam;
@@ -50,11 +49,11 @@ let Spotify = {
         try {
             if (response.ok) {
                 let jsonResponse = await response.json();
-                console.log(jsonResponse)
+                // console.log(jsonResponse)
 
                 jsonResponse = jsonResponse.tracks.items;
                 let tracks = jsonResponse.map(track => track);
-                console.log(tracks)
+                // console.log(tracks)
                 return tracks;
             }
         }
@@ -94,8 +93,8 @@ let Spotify = {
         }
 
         accessToken = Spotify.getAccesssToken();
-        console.log(userID)
-        console.log(playlistName)
+        // console.log(userID)
+        // console.log(playlistName)
         try {
             const response = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
                 method: 'POST',
@@ -124,7 +123,7 @@ let Spotify = {
             })
             if (postMusic.ok) {
                 const jsonResponse = await postMusic.json();
-                console.log(jsonResponse)
+                // console.log(jsonResponse)
             }
         }
         catch(error) {
